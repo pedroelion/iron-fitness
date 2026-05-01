@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron Fitness | Construa seu Legado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="/static/img/logo.png" alt="Iron Fitness">
+        </div>
+        <nav class="nav-links">
+            <a href="#inicio">Início</a>
+            <a href="#estrutura">Estrutura</a>
+            <a href="#planos">Planos</a>
+            <a href="#aulas">Aulas</a>
+            <a href="#localizacao">Localização</a>
+        </nav>
+        <a href="https://wa.me/559481169880?text=Olá, vim pelo site e quero fazer minha matrícula!" target="_blank" class="btn-primary">
+            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+        </a>
+    </header>
+
+    <section id="inicio" class="hero">
+        <video autoplay loop muted playsinline class="hero-video">
+            <source src="/static/img/bg.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content reveal">
+            <h1>BORA TREINAR?</h1>
+            <p>A maior e melhor estrutura da região. Aceitamos Gympass e TotalPass.</p>
+            <a href="#planos" class="btn-hero">VER PLANOS</a>
+        </div>
+    </section>
+
+    <section id="estrutura" class="section">
+        <div class="section-header reveal">
+            <h2>Nossa <span>Estrutura</span></h2>
+            <p>Equipamentos de alto padrão para resultados reais.</p>
+        </div>
+        <div class="grid-estrutura">
+            {{range .Estruturas}}
+            <div class="card-estrutura reveal">
+                <div class="img-container" style="background-image: url('{{.Imagem}}');"></div>
+                <div class="card-content">
+                    <h3>{{.Titulo}}</h3>
+                </div>
+            </div>
+            {{end}}
+        </div>
+    </section>
+
+    <section id="planos" class="section bg-darker">
+        <div class="section-header reveal">
+            <h2>Escolha seu <span>Plano</span></h2>
+            <p>Mensalidades que cabem no seu bolso, sem enrolação.</p>
+        </div>
+        <div class="grid-planos">
+            {{range .Planos}}
+            <div class="card-plano {{if .Destaque}}destaque{{end}} reveal">
+                {{if .Destaque}}<div class="badge">MAIS ESCOLHIDO</div>{{end}}
+                <h3>{{.Nome}}</h3>
+                <div class="preco">{{.Preco}}<span>/mês</span></div>
+                <ul class="lista-vantagens">
+                    {{range .Vantagens}}
+                    <li><i class="fa-solid fa-check"></i> {{.}}</li>
+                    {{end}}
+                </ul>
+                <a href="https://wa.me/559481169880?text=Quero assinar o {{.Nome}}" target="_blank" class="btn-plano">ASSINAR AGORA</a>
+            </div>
+            {{end}}
+        </div>
+    </section>
+
+    <section id="aulas" class="section">
+        <div class="section-header reveal">
+            <h2>Aulas <span>Coletivas</span></h2>
+            <p>Mais energia e motivação para o seu dia a dia.</p>
+        </div>
+        <div class="grid-aulas">
+            {{range .Aulas}}
+            <div class="card-aula reveal" style="background-image: url('{{.Imagem}}');">
+                <div class="aula-overlay">
+                    <h4>{{.Nome}}</h4>
+                    <p>{{.Descricao}}</p>
+                </div>
+            </div>
+            {{end}}
+        </div>
+    </section>
+
+    <section id="localizacao" class="section bg-darker">
+        <div class="container-localizacao reveal">
+            <div class="info-localizacao">
+                <h2>Onde <span>Estamos</span></h2>
+                <p>Venha conhecer a melhor academia da região.</p>
+                
+                <div class="contato-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <strong>Endereço</strong>
+                        <p>Av. Principal, 1000 - Centro</p>
+                    </div>
+                </div>
+                
+                <div class="contato-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <div>
+                        <strong>Horário de Funcionamento</strong>
+                        <p>Seg a Sex: 05h às 23h<br>Sáb e Dom: 08h às 14h</p>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/559481169880?text=Olá, como faço para chegar na academia?" target="_blank" class="btn-primary mt-4">
+                    <i class="fa-brands fa-whatsapp"></i> CHAME NO WHATSAPP
+                </a>
+            </div>
+            <div class="mapa-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.95373531531615!3d-37.816279742021234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d1a0ad055d0!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sbr!4v1625000000000!5m2!1sen!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <img src="/static/img/logo.png" alt="Iron Fitness" style="height: 50px;">
+            <p>© 2026 Iron Fitness. Todos os direitos reservados.</p>
+            <div class="redes-sociais">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
