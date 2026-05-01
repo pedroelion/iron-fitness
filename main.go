@@ -4,12 +4,18 @@ import (
 	"log"
 	"modulo/rotas"
 	"net/http"
+	"os"
 )
 
 func main() {
-	// Carrega as rotas
 	rotas.CarregaRotas()
 
-	log.Println("Servidor rodando na porta 8000. Acesse: http://localhost:8000")
-	http.ListenAndServe(":8000", nil)
+	// Pega a porta fornecida pelo servidor de hospedagem
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8000" // Usa a 8000 se estiver rodando local no seu PC
+	}
+
+	log.Println("Servidor rodando na porta " + port)
+	http.ListenAndServe(":"+port, nil)
 }
